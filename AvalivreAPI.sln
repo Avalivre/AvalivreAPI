@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Services", "4.3 - Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Infrastructure.Persistence", "src\Avalivre.Infrastructure.Persistence\Avalivre.Infrastructure.Persistence.csproj", "{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Infrastructure.DTO", "src\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj", "{8DAA2492-E0AB-440B-9082-F1765A187E81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAA2492-E0AB-440B-9082-F1765A187E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAA2492-E0AB-440B-9082-F1765A187E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAA2492-E0AB-440B-9082-F1765A187E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAA2492-E0AB-440B-9082-F1765A187E81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{58E5C323-A96B-42B5-B43F-B988BB4FE1B2} = {CFF01FBF-9758-404A-BB45-D492043EF767}
 		{D4411661-2AF4-485D-A880-3A19F8CE9D7E} = {CFF01FBF-9758-404A-BB45-D492043EF767}
 		{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F} = {6710B151-6AE3-4170-8BF5-0477304F1361}
+		{8DAA2492-E0AB-440B-9082-F1765A187E81} = {58E5C323-A96B-42B5-B43F-B988BB4FE1B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD5603A7-48B2-4291-B38E-33FEEF33E264}
