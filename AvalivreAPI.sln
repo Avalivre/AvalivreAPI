@@ -11,9 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CFF01FBF-9758-404A-BB45-D492043EF767}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.WebApi", "src\Avalivre.WebApi\Avalivre.WebApi.csproj", "{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9} = {B58CCB77-F1C8-4C6F-998F-735C5737831F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD5603A7-48B2-4291-B38E-33FEEF33E264}
