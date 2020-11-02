@@ -4,9 +4,9 @@
     {
         public User(string name, string email, string password, bool isAdmin = false)
         {
-            Name = name;
-            Email = email;
-            Password = password;
+            this.Name = name;
+            this.Email = email;
+            this.Password = password;
             this.IsAdmin = isAdmin;
         }
 
