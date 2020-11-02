@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Avalivre.Domain.Users
+﻿namespace Avalivre.Domain.Users
 {
     public class User
     {
