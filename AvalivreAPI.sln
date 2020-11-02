@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.WebApi", "src\Aval
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Application", "src\Avalivre.Application\Avalivre.Application.csproj", "{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Domain", "src\Avalivre.Domain\Avalivre.Domain.csproj", "{D8BB54D9-2206-4A0C-B60F-1308DE721261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8BB54D9-2206-4A0C-B60F-1308DE721261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8BB54D9-2206-4A0C-B60F-1308DE721261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8BB54D9-2206-4A0C-B60F-1308DE721261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8BB54D9-2206-4A0C-B60F-1308DE721261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7391C7E3-929E-4C2E-BE99-AF8C33964FF9} = {B58CCB77-F1C8-4C6F-998F-735C5737831F}
 		{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580} = {AB64C2A5-23D5-4479-A5F4-D1EC70546DB1}
+		{D8BB54D9-2206-4A0C-B60F-1308DE721261} = {E81D0A84-DA42-4417-B9C0-4391FC891F2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD5603A7-48B2-4291-B38E-33FEEF33E264}
