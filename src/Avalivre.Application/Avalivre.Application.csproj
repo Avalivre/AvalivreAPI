@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UserServices\Impl\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Avalivre.Domain\Avalivre.Domain.csproj" />
     <ProjectReference Include="..\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj" />
   </ItemGroup>
 
