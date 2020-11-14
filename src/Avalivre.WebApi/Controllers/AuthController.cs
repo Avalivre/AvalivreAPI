@@ -1,4 +1,5 @@
-﻿using Avalivre.Infrastructure.DTO.UserAuth;
+﻿using Avalivre.Application.UserServices;
+using Avalivre.Infrastructure.DTO.UserAuth;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Avalivre.WebApi.Controllers
         {
             try
             {
-                userService.RegisterUser(dto);
+                await userService.Register(dto);
 
                 return CreatedAtAction("register", dto.Name);
             }
