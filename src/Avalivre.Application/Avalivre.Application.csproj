@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="UserServices\Impl\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
