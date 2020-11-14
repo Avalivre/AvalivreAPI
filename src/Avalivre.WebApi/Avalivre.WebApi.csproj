@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Avalivre.Infrastructure.Persistence\Avalivre.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
