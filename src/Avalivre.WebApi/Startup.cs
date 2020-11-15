@@ -2,7 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalivre.Application.UserServices;
+using Avalivre.Application.UserServices.Impl;
+using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.Persistence.Context;
+using Avalivre.Infrastructure.Persistence.Repositories;
+using Avalivre.Infrastructure.Persistence.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +35,12 @@ namespace Avalivre.WebApi
             services.AddDbContext<DataContext>(opt => 
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlServerDB")));
             services.AddControllers();
+
+            // IoC Container
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
