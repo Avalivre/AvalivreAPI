@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Avalivre.WebApi.Controllers
 {
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         [HttpPost]
@@ -18,7 +19,7 @@ namespace Avalivre.WebApi.Controllers
             {
                 await userService.Register(dto);
 
-                return CreatedAtAction("register", dto.Name);
+                return Ok();
             }
             catch (Exception ex)
             {
