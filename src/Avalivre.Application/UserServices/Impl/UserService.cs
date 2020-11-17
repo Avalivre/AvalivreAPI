@@ -1,6 +1,7 @@
 ﻿using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.DTO.UserAuth;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
+using Avalivre.Infrastructure.Security;
 using System.Threading.Tasks;
 using Yaba.Tools.Validations;
 
