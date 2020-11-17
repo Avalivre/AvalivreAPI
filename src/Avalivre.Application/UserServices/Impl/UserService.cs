@@ -41,11 +41,20 @@ namespace Avalivre.Application.UserServices.Impl
             var user = await _userRepository.GetByEmail(dto.Email);
             Validate.NotNull(user, "User not found");
 
+            dto.Password = EncryptPassword(dto.Password);
+
             user = new User(dto.Name, dto.Email, dto.Password);
 
             _userRepository.Insert(user);
 
             await _uow.CommitAsync();
         }
+
+        #region Priv Methods
+        private string EncryptPassword(string password)
+        {
+            return SecurityManager.GeneratePbkdf2Hash(password);
+        }
+        #endregion
     }
 }
