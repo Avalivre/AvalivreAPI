@@ -45,7 +45,7 @@ namespace Avalivre.Application.UserServices.Impl
         public async Task Register(RegisterUserDTO dto)
         {
             var user = await _userRepository.GetByEmail(dto.Email);
-            Validate.NotNull(user, "User not found");
+            Validate.IsTrue(user is null, "User already exists");
 
             dto.Password = EncryptPassword(dto.Password);
 

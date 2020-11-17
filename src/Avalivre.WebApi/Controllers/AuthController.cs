@@ -21,7 +21,7 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return StatusCode(500);
             }
@@ -39,7 +39,7 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return StatusCode(500);
             }
