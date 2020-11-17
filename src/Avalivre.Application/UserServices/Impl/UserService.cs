@@ -1,7 +1,9 @@
 ﻿using Avalivre.Domain.Users;
+using Avalivre.Infrastructure.DTO.Configuration;
 using Avalivre.Infrastructure.DTO.UserAuth;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
 using Avalivre.Infrastructure.Security;
+using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 using Yaba.Tools.Validations;
 
@@ -10,13 +12,16 @@ namespace Avalivre.Application.UserServices.Impl
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IOptions<JwtConfig> _options;
         private readonly UnitOfWork _uow;
 
         public UserService(
             UnitOfWork uow,
+            IOptions<JwtConfig> options,
             IUserRepository userRepository)
         {
             this._userRepository = userRepository;
+            this._options = options;
             this._uow = uow;
         }
 
