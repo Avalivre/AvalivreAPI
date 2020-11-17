@@ -21,7 +21,25 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok();
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost]
+        [Route("[Action]")]
+        public async Task<IActionResult> Login(
+            [FromServices] IUserService userService,
+            [FromBody] LoginUserDTO dto)
+        {
+            try
+            {
+                var result = await userService.Login(dto);
+
+                return Ok(result);
+            }
+            catch (Exception)
             {
                 return StatusCode(500);
             }
