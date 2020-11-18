@@ -1,4 +1,5 @@
-﻿using Avalivre.Infrastructure.DTO.Product;
+﻿using Avalivre.Application.UserServices;
+using Avalivre.Infrastructure.DTO.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,13 +19,12 @@ namespace Avalivre.WebApi.Controllers
         {
             try
             {
-                var response = productService.Create(dto);
+                var response = await productService.Create(dto);
 
-                return response;
+                return Ok(response);
             }
             catch (Exception ex)
             {
-
                 return StatusCode(500);
             }
         }
