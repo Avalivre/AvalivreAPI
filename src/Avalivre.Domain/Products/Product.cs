@@ -5,15 +5,6 @@ namespace Avalivre.Domain.Products
 {
     public class Product
     {
-        public Product(string modelCode, string material, string name, string brand)
-            : this(name, brand)
-        {
-            ValidateModelCode(modelCode);
-            ValidateMaterial(material);
-            ModelCode = modelCode;
-            Material = material;
-        }
-
         public Product(string name, string brand)
         {
             ValidateName(name);
