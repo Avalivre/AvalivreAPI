@@ -24,6 +24,7 @@ namespace Avalivre.Domain.Products
             this.Brand = brand;
         }
 
+        public long Id { get; private set; }
         public string Name { get; private set; }
         public DateTime CreationDate { get; private set; }
         public DateTime? UpdateDate { get; private set; }
