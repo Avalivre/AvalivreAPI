@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Avalivre.Domain\Avalivre.Domain.csproj" />
     <ProjectReference Include="..\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj" />
     <ProjectReference Include="..\Avalivre.Infrastructure.Persistence\Avalivre.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Avalivre.Infrastructure.Security\Avalivre.Infrastructure.Security.csproj" />
   </ItemGroup>
 
 </Project>
