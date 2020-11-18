@@ -1,7 +1,6 @@
 ﻿using Avalivre.Domain.Products;
 using Avalivre.Infrastructure.DTO.Product;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
-using System;
 using System.Threading.Tasks;
 
 namespace Avalivre.Application.UserServices.Impl
@@ -29,7 +28,7 @@ namespace Avalivre.Application.UserServices.Impl
             if (!string.IsNullOrEmpty(dto.Material))
                 product.SetMaterial(dto.Material);
 
-            _productRepository.Create(dto);
+            _productRepository.Insert(product);
             await _uow.CommitAsync();
 
             return product;
