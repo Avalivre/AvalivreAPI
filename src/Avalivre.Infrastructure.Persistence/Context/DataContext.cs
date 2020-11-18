@@ -1,4 +1,6 @@
-﻿using Avalivre.Domain.Users;
+﻿using Avalivre.Domain.Products;
+using Avalivre.Domain.Users;
+using Avalivre.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Avalivre.Infrastructure.Persistence.Context
@@ -6,6 +8,7 @@ namespace Avalivre.Infrastructure.Persistence.Context
     public class DataContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public DataContext(DbContextOptions options) : base(options)
         {
@@ -13,7 +16,8 @@ namespace Avalivre.Infrastructure.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
     }
 }
