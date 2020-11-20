@@ -1,6 +1,7 @@
 ﻿using Avalivre.Domain.Products;
 using Avalivre.Infrastructure.DTO.Product;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Avalivre.Application.UserServices.Impl
@@ -32,6 +33,11 @@ namespace Avalivre.Application.UserServices.Impl
             await _uow.CommitAsync();
 
             return product;
+        }
+
+        public Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10)
+        {
+            return _productRepository.GetSimilarProducts(name.ToLower(), fetch);
         }
     }
 }
