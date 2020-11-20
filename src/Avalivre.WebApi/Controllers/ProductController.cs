@@ -28,5 +28,23 @@ namespace Avalivre.WebApi.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpGet]
+        [Route("/{string: name}")]
+        public async Task<IActionResult> GetSimilarProducts(
+            string name,
+            [FromServices] IProductService productService)
+        {
+            try
+            {
+                var response = await productService.GetSimilarProducts(name);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }
