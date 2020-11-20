@@ -37,6 +37,9 @@ namespace Avalivre.Application.UserServices.Impl
 
         public Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10)
         {
+            if (string.IsNullOrEmpty(name) || name.Length <= 2)
+                return Task.FromResult(default(IEnumerable<SimilarProductDTO>));
+
             return _productRepository.GetSimilarProducts(name.ToLower(), fetch);
         }
     }

@@ -30,9 +30,9 @@ namespace Avalivre.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("/{string: name}")]
+        [Route("")]
         public async Task<IActionResult> GetSimilarProducts(
-            string name,
+            [FromQuery] string name,
             [FromServices] IProductService productService)
         {
             try
