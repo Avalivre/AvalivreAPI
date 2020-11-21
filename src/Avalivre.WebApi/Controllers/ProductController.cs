@@ -50,6 +50,25 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        [Route("")]
+        public async Task<IActionResult> GetProduct(
+            long id,
+            [FromServices] IProductService productService)
+        {
+            try
+            {
+                var response = await productService.Get(id);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
         [HttpDelete("{id}")]
         [Route("")]
         public async Task<IActionResult> DeleteProduct(
