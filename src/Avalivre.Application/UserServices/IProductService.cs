@@ -7,6 +7,7 @@ namespace Avalivre.Application.UserServices
 {
     public interface IProductService
     {
+        Task Delete(int product, long userId);
         Task<Product> Create(CreateProductDTO dto);
 
         Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10);

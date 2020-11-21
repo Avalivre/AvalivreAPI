@@ -1,8 +1,10 @@
 ﻿using Avalivre.Domain.Products;
+using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.DTO.Product;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Yaba.Tools.Validations;
 
 namespace Avalivre.Application.UserServices.Impl
 {
@@ -10,13 +12,16 @@ namespace Avalivre.Application.UserServices.Impl
     {
         private readonly IProductRepository _productRepository;
         private readonly UnitOfWork _uow;
+        private readonly IUserRepository _userRepository;
 
         public ProductService(
             UnitOfWork uow,
+            IUserRepository userRepository,
             IProductRepository productRepository)
         {
-            this._productRepository = productRepository;
             this._uow = uow;
+            this._userRepository = userRepository;
+            this._productRepository = productRepository;
         }
 
         public async Task<Product> Create(CreateProductDTO dto)
@@ -33,6 +38,17 @@ namespace Avalivre.Application.UserServices.Impl
             await _uow.CommitAsync();
 
             return product;
+        }
+
+        public async Task Delete(int productId, long userId)
+        {
+            var user = await _userRepository.GetById(userId);
+
+            Validate.IsTrue(user.IsAdmin, "Somente administradores possuem acesso a este recurso.");
+
+            _productRepository.Delete(productId);
+
+            await _uow.CommitAsync();
         }
 
         public Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10)
