@@ -3,7 +3,9 @@ using Avalivre.Infrastructure.DTO.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Yaba.Tools.Validations;
 
 namespace Avalivre.WebApi.Controllers
 {
@@ -47,5 +49,35 @@ namespace Avalivre.WebApi.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpDelete]
+        [Route("")]
+        public async Task<IActionResult> DeleteProduct(
+            [FromQuery] int id,
+            [FromServices] IProductService productService)
+        {
+            try
+            {
+                var userId = GetUserFromToken();
+                await productService.Delete(id, userId);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        #region Priv Methods
+        private long GetUserFromToken()
+        {
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            Validate.NotNull(claim, "É necessário estar logado para acessar este recurso.");
+
+            return long.Parse(claim.Value);
+        }
+        #endregion
     }
 }
