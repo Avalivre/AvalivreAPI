@@ -69,6 +69,27 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        [Route("")]
+        public async Task<IActionResult> UpdateProduct(
+            long id,
+            [FromBody] UpdateProductDTO dto,
+            [FromServices] IProductService productService)
+        {
+            try
+            {
+                dto.Id = id;
+                var userId = GetUserFromToken();
+                await productService.Edit(dto, userId);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
         #region Priv Methods
         private int GetUserFromToken()
         {
