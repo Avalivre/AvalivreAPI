@@ -29,6 +29,7 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetSimilarProducts(
