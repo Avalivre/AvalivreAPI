@@ -70,6 +70,10 @@ namespace Avalivre.Application.UserServices.Impl
             await _uow.CommitAsync();
         }
 
+        public async Task<Product> Get(long id)
+        {
+            return await _productRepository.GetById(id);
+        }
 
         public Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10)
         {

@@ -12,5 +12,7 @@ namespace Avalivre.Application.UserServices
 
         Task<Product> Create(CreateProductDTO dto);
         Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10);
+        Task<Product> Get(long id);
+
     }
 }
