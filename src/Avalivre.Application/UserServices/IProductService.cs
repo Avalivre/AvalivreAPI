@@ -8,8 +8,9 @@ namespace Avalivre.Application.UserServices
     public interface IProductService
     {
         Task Delete(long product, int userId);
-        Task<Product> Create(CreateProductDTO dto);
+        Task Edit(UpdateProductDTO dto, int userId);
 
+        Task<Product> Create(CreateProductDTO dto);
         Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10);
     }
 }

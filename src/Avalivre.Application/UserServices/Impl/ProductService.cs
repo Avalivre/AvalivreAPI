@@ -55,6 +55,22 @@ namespace Avalivre.Application.UserServices.Impl
             await _uow.CommitAsync();
         }
 
+        public async Task Edit(UpdateProductDTO dto, int userId)
+        {
+            var user = await _userRepository.GetById(userId);
+
+            Validate.IsTrue(user.IsAdmin, "Somente administradores possuem acesso a este recurso.");
+
+            var product = await _productRepository.GetById(dto.Id);
+
+            Validate.NotNull(product, "O produto não foi encontrado");
+
+            UpdateProduct(product, dto);
+
+            await _uow.CommitAsync();
+        }
+
+
         public Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch = 10)
         {
             if (string.IsNullOrEmpty(name) || name.Length <= 2)
@@ -62,5 +78,21 @@ namespace Avalivre.Application.UserServices.Impl
 
             return _productRepository.GetSimilarProducts(name.ToLower(), fetch);
         }
+
+        #region Priv Methods
+        private void UpdateProduct(Product product, UpdateProductDTO dto)
+        {
+            product.SetName(dto.Name);
+            product.SetBrand(dto.Brand);
+
+            if (!string.IsNullOrEmpty(dto.ModelCode))
+                product.SetModelCode(dto.ModelCode);
+
+            if (!string.IsNullOrEmpty(dto.Material))
+                product.SetMaterial(dto.Material);
+
+            _productRepository.Update(product);
+        }
+        #endregion
     }
 }
