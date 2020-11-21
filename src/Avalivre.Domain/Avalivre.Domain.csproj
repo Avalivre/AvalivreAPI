@@ -8,4 +8,8 @@
     <PackageReference Include="Yaba.Tools" Version="0.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

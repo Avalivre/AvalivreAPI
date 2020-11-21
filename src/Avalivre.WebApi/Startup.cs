@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Avalivre.Application.UserServices;
 using Avalivre.Application.UserServices.Impl;
+using Avalivre.Domain.Products;
 using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.DTO.Configuration;
 using Avalivre.Infrastructure.Persistence.Context;
@@ -46,9 +47,11 @@ namespace Avalivre.WebApi
             services.AddControllers();
 
             // IoC Container
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<UnitOfWork>();
 
             var secretKey = Configuration.GetSection("JwtConfig:SecretKey").Value;
@@ -70,6 +73,9 @@ namespace Avalivre.WebApi
 
             app.UseRouting();
 
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -83,6 +89,8 @@ namespace Avalivre.WebApi
         {
             var tokenValidationParameters = new TokenValidationParameters()
             {
+                ValidateIssuer = false,
+                ValidateAudience = false,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = securityKey
             };

@@ -5,15 +5,6 @@ namespace Avalivre.Domain.Products
 {
     public class Product
     {
-        public Product(string modelCode, string material, string name, string brand)
-            : this(name, brand)
-        {
-            ValidateModelCode(modelCode);
-            ValidateMaterial(material);
-            ModelCode = modelCode;
-            Material = material;
-        }
-
         public Product(string name, string brand)
         {
             ValidateName(name);
@@ -55,6 +46,11 @@ namespace Avalivre.Domain.Products
         {
             ValidateMaterial(material);
             this.Material = material;
+        }
+
+        public void SetUpdateDate()
+        {
+            this.UpdateDate = DateTime.Now; // TODO: BR time
         }
 
         #region Priv Methods
