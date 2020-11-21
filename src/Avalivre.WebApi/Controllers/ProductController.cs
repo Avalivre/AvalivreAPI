@@ -50,10 +50,10 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Route("")]
         public async Task<IActionResult> DeleteProduct(
-            [FromQuery] int id,
+            long id,
             [FromServices] IProductService productService)
         {
             try
@@ -70,13 +70,13 @@ namespace Avalivre.WebApi.Controllers
         }
 
         #region Priv Methods
-        private long GetUserFromToken()
+        private int GetUserFromToken()
         {
             var claim = User.FindFirst(ClaimTypes.NameIdentifier);
 
             Validate.NotNull(claim, "É necessário estar logado para acessar este recurso.");
 
-            return long.Parse(claim.Value);
+            return int.Parse(claim.Value);
         }
         #endregion
     }

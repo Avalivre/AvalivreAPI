@@ -40,7 +40,7 @@ namespace Avalivre.Application.UserServices.Impl
             return product;
         }
 
-        public async Task Delete(int productId, long userId)
+        public async Task Delete(long productId, int userId)
         {
             var user = await _userRepository.GetById(userId);
 
