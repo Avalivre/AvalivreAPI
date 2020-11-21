@@ -26,5 +26,11 @@ namespace Avalivre.Infrastructure.Persistence.Repositories
                 .Take(fetch)
                 .ToListAsync();
         }
+
+        public override void Update(Product entity)
+        {
+            entity.SetUpdateDate();
+            base.Update(entity);
+        }
     }
 }

@@ -48,6 +48,11 @@ namespace Avalivre.Domain.Products
             this.Material = material;
         }
 
+        public void SetUpdateDate()
+        {
+            this.UpdateDate = DateTime.Now; // TODO: BR time
+        }
+
         #region Priv Methods
         private void ValidateName(string name)
         {

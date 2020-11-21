@@ -8,6 +8,7 @@ namespace Avalivre.Domain.Products
     {
         void Insert(Product product);
         void Delete(Product entity);
+        void Update(Product entity);
         Task<IEnumerable<SimilarProductDTO>> GetSimilarProducts(string name, int fetch);
         Task<Product> GetById(object id);
     }
