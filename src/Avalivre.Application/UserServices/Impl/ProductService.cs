@@ -46,7 +46,11 @@ namespace Avalivre.Application.UserServices.Impl
 
             Validate.IsTrue(user.IsAdmin, "Somente administradores possuem acesso a este recurso.");
 
-            _productRepository.Delete(productId);
+            var product = await _productRepository.GetById(productId);
+
+            Validate.NotNull(product, "O produto não foi encontrado");
+
+            _productRepository.Delete(product);
 
             await _uow.CommitAsync();
         }
