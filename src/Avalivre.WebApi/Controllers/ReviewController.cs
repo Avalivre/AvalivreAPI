@@ -36,6 +36,30 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("product/{productId}")]
+        public async Task<IActionResult> GetRecentByProduct(
+            long productId,
+            [FromServices] IReviewService reviewService)
+        {
+            try
+            {
+                var dto = new GetRecentReviewsDTO { ProductId = productId };
+                var response = await reviewService.GetRecentByproduct(dto);
+
+                return Ok(response);
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
         #region Priv Methods
         private int GetUserFromToken()
         {

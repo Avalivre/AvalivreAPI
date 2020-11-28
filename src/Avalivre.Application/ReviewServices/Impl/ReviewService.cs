@@ -4,6 +4,8 @@ using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.DTO.Review;
 using Avalivre.Infrastructure.Persistence.UnitOfWork;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Yaba.Tools.Validations;
 
@@ -48,6 +50,18 @@ namespace Avalivre.Application.ReviewServices.Impl
                 ProductName = product.Name,
                 Rating = review.Rating
             };
+        }
+
+        public async Task<ICollection<ReviewDTO>> GetRecentByproduct(GetRecentReviewsDTO dto)
+        {
+            var product = await _productRepository.GetById(dto.ProductId);
+            Validate.NotNull(product, "Produto não encontrado");
+
+            var reviews = await _reviewRepository.GetRecentByProduct(dto.ProductId, dto.Fetch);
+
+            Validate.IsTrue(reviews.Count > 0, "Este produto ainda não possui avaliações.");
+
+            return reviews;
         }
     }
 }
