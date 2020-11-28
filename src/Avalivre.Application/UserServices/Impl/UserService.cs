@@ -29,11 +29,11 @@ namespace Avalivre.Application.UserServices.Impl
         {
             var user = await _userRepository.GetByEmail(dto.Email);
 
-            Validate.NotNull(user, "User not found");
+            Validate.NotNull(user, "Usuário não encontrado");
 
             var passwordIsValid = SecurityManager.VerifyPasswordPbkdf2(dto.Password, user.Password);
 
-            Validate.IsTrue(passwordIsValid, "Password is incorrect");
+            Validate.IsTrue(passwordIsValid, "Senha incorreta, tente novamente.");
 
             return new LoginUserResponseDTO()
             {
@@ -45,7 +45,7 @@ namespace Avalivre.Application.UserServices.Impl
         public async Task Register(RegisterUserDTO dto)
         {
             var user = await _userRepository.GetByEmail(dto.Email);
-            Validate.IsTrue(user is null, "User already exists");
+            Validate.IsTrue(user is null, "Usuário já existe");
 
             dto.Password = EncryptPassword(dto.Password);
 

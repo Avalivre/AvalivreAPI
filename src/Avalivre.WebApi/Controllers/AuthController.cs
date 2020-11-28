@@ -22,6 +22,10 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok();
             }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
             catch (Exception ex)
             {
                 return StatusCode(500);
@@ -39,6 +43,10 @@ namespace Avalivre.WebApi.Controllers
                 var result = await userService.Login(dto);
 
                 return Ok(result);
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
             }
             catch (Exception ex)
             {

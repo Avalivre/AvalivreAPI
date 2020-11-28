@@ -25,6 +25,10 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok(response);
             }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
             catch (Exception ex)
             {
                 return StatusCode(500);
@@ -43,6 +47,10 @@ namespace Avalivre.WebApi.Controllers
                 var response = await productService.GetSimilarProducts(name);
 
                 return Ok(response);
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
             }
             catch (Exception ex)
             {
@@ -63,6 +71,10 @@ namespace Avalivre.WebApi.Controllers
 
                 return Ok(response);
             }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
             catch (Exception ex)
             {
                 return StatusCode(500);
@@ -81,6 +93,10 @@ namespace Avalivre.WebApi.Controllers
                 await productService.Delete(id, userId);
 
                 return Ok();
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
             }
             catch (Exception ex)
             {
@@ -102,6 +118,10 @@ namespace Avalivre.WebApi.Controllers
                 await productService.Edit(dto, userId);
 
                 return Ok();
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
             }
             catch (Exception ex)
             {
