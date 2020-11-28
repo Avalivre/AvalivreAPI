@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avalivre.Application.ReviewServices;
+using Avalivre.Application.ReviewServices.Impl;
 using Avalivre.Application.UserServices;
 using Avalivre.Application.UserServices.Impl;
 using Avalivre.Domain.Products;
+using Avalivre.Domain.Reviews;
 using Avalivre.Domain.Users;
 using Avalivre.Infrastructure.DTO.Configuration;
 using Avalivre.Infrastructure.Persistence.Context;
@@ -47,9 +50,11 @@ namespace Avalivre.WebApi
             services.AddControllers();
 
             // IoC Container
+            services.AddScoped<IReviewService, ReviewService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserService, UserService>();
 
+            services.AddScoped<IReviewRepository, ReviewRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<UnitOfWork>();

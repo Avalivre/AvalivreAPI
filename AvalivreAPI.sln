@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{CFF01FBF-9758-404A-BB45-D492043EF767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.WebApi", "src\Avalivre.WebApi\Avalivre.WebApi.csproj", "{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.WebApi", "src\Avalivre.WebApi\Avalivre.WebApi.csproj", "{7391C7E3-929E-4C2E-BE99-AF8C33964FF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Application", "src\Avalivre.Application\Avalivre.Application.csproj", "{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.Application", "src\Avalivre.Application\Avalivre.Application.csproj", "{C4069B3F-ADB9-4E0A-ACA5-196F8CFDA580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Domain", "src\Avalivre.Domain\Avalivre.Domain.csproj", "{D8BB54D9-2206-4A0C-B60F-1308DE721261}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.Domain", "src\Avalivre.Domain\Avalivre.Domain.csproj", "{D8BB54D9-2206-4A0C-B60F-1308DE721261}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{6710B151-6AE3-4170-8BF5-0477304F1361}"
 EndProject
@@ -23,11 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 -
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Services", "4.3 - Services", "{D4411661-2AF4-485D-A880-3A19F8CE9D7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Infrastructure.Persistence", "src\Avalivre.Infrastructure.Persistence\Avalivre.Infrastructure.Persistence.csproj", "{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.Infrastructure.Persistence", "src\Avalivre.Infrastructure.Persistence\Avalivre.Infrastructure.Persistence.csproj", "{570C9A77-5300-4783-A8D3-AC6EBAA2EC3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Infrastructure.DTO", "src\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj", "{8DAA2492-E0AB-440B-9082-F1765A187E81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.Infrastructure.DTO", "src\Avalivre.Infrastructure.DTO\Avalivre.Infrastructure.DTO.csproj", "{8DAA2492-E0AB-440B-9082-F1765A187E81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalivre.Infrastructure.Security", "src\Avalivre.Infrastructure.Security\Avalivre.Infrastructure.Security.csproj", "{DA53A312-B44A-49FF-BE3A-AB2B6EBD8F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avalivre.Infrastructure.Security", "src\Avalivre.Infrastructure.Security\Avalivre.Infrastructure.Security.csproj", "{DA53A312-B44A-49FF-BE3A-AB2B6EBD8F9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
