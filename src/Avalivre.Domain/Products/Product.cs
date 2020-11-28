@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Avalivre.Domain.Reviews;
+using System;
+using System.Collections.Generic;
 using Yaba.Tools.Validations;
 
 namespace Avalivre.Domain.Products
@@ -23,6 +25,7 @@ namespace Avalivre.Domain.Products
         public string ModelCode { get; private set; }
         public string Material { get; private set; }
 
+        public ICollection<Review> Reviews { get; set; }
 
         public void SetName(string name)
         {
