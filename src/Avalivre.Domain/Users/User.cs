@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Avalivre.Domain.Reviews;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Yaba.Tools.Validations;
 
 namespace Avalivre.Domain.Users
@@ -22,6 +25,8 @@ namespace Avalivre.Domain.Users
         public string Email { get; private set; }
         public string Password { get; private set; }
         public bool IsAdmin { get; private set; }
+
+        public ICollection<Review> Reviews { get; set; }
 
         public void SetName(string name)
         {
