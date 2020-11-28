@@ -17,6 +17,7 @@ namespace Avalivre.WebApi.Controllers
         {
             try
             {
+                // TODO: retornar informações sobre o usuário logado
                 await userService.Register(dto);
 
                 return Ok();
