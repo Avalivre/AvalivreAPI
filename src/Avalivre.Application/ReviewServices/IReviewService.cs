@@ -8,5 +8,6 @@ namespace Avalivre.Application.ReviewServices
     {
         Task<ReviewDTO> Create(CreateReviewDTO dto);
         Task<ICollection<ReviewDTO>> GetRecentByproduct(GetRecentReviewsDTO dto);
+        Task<ReviewDTO> Get(long id);
     }
 }

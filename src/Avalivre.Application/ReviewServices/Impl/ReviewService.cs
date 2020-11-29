@@ -63,5 +63,13 @@ namespace Avalivre.Application.ReviewServices.Impl
 
             return reviews;
         }
+
+        public async Task<ReviewDTO> Get(long id)
+        {
+            var review = await _reviewRepository.GetWithProduct(id);
+            Validate.NotNull(review, "Avaliação não encontrada");
+
+            return review;
+        }
     }
 }

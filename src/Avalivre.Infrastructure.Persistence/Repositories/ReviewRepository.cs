@@ -33,5 +33,19 @@ namespace Avalivre.Infrastructure.Persistence.Repositories
                 .Take(fetch)
                 .ToListAsync();
         }
+
+        public async Task<ReviewDTO> GetWithProduct(long id)
+        {
+            return await _context.Reviews
+                .Where(r => r.Id == id)
+                .Include(r => r.Product)
+                .Select(r => new ReviewDTO
+                {
+                    Description = r.Description,
+                    ProductName = r.Product.Name,
+                    Rating = r.Rating
+                })
+                .FirstOrDefaultAsync();
+        }
     }
 }

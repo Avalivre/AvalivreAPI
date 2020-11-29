@@ -8,5 +8,6 @@ namespace Avalivre.Domain.Reviews
     {
         void Insert(Review entity);
         Task<ICollection<ReviewDTO>> GetRecentByProduct(long productId, int fetch);
+        Task<ReviewDTO> GetWithProduct(long id);
     }
 }

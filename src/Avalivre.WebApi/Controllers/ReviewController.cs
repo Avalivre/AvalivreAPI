@@ -60,6 +60,29 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        [Route("")]
+        public async Task<IActionResult> Get(
+            long id,
+            [FromServices] IReviewService reviewService)
+        {
+            try
+            {
+                var response = await reviewService.Get(id);
+
+                return Ok(response);
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
         #region Priv Methods
         private int GetUserFromToken()
         {
