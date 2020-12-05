@@ -83,6 +83,29 @@ namespace Avalivre.WebApi.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
+        [Route("")]
+        public async Task<IActionResult> Delete(
+            long id,
+            [FromServices] IReviewService reviewService)
+        {
+            try
+            {
+                var userId = GetUserFromToken();
+                await reviewService.Delete(id, userId);
+
+                return Ok();
+            }
+            catch (ArgumentException aex)
+            {
+                return BadRequest(aex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
         #region Priv Methods
         private int GetUserFromToken()
         {

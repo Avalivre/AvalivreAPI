@@ -30,6 +30,21 @@ namespace Avalivre.Application.ReviewServices.Impl
             _uow = uow;
         }
 
+        public async Task Delete(long id, int userId)
+        {
+            var review = await _reviewRepository.GetById(id);
+
+            Validate.NotNull(review, "A avaliação não foi encontrada");
+
+            var user = await _userRepository.GetById(userId);
+
+            Validate.IsTrue(review.UserId == userId, "Somente o criador da avaliação pode apaga-la.");
+
+            _reviewRepository.Delete(review);
+
+            await _uow.CommitAsync();
+        }
+
         public async Task<ReviewDTO> Create(CreateReviewDTO dto)
         {
             var user = await _userRepository.GetById(dto.UserId);

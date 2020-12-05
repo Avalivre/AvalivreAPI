@@ -7,6 +7,7 @@ namespace Avalivre.Application.ReviewServices
     public interface IReviewService
     {
         Task<ReviewDTO> Create(CreateReviewDTO dto);
+        Task Delete(long id, int userId);
         Task<ICollection<ReviewDTO>> GetRecentByproduct(GetRecentReviewsDTO dto);
         Task<ReviewDTO> Get(long id);
     }
