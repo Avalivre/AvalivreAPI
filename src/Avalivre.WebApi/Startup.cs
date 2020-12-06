@@ -63,7 +63,15 @@ namespace Avalivre.WebApi
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
             ConfigureTokenValidation(services, securityKey);
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,7 +86,7 @@ namespace Avalivre.WebApi
 
             app.UseRouting();
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors();
 
             app.UseAuthentication();
             app.UseAuthorization();

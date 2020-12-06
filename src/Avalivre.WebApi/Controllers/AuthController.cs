@@ -1,11 +1,13 @@
 ﻿using Avalivre.Application.UserServices;
 using Avalivre.Infrastructure.DTO.UserAuth;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace Avalivre.WebApi.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {

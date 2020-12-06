@@ -1,6 +1,7 @@
 ﻿using Avalivre.Application.UserServices;
 using Avalivre.Infrastructure.DTO.Product;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ using Yaba.Tools.Validations;
 
 namespace Avalivre.WebApi.Controllers
 {
+    [EnableCors]
     [Authorize]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
